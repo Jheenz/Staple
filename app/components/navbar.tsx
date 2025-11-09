@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'next/link';
 import localFont from 'next/font/local';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,9 +17,9 @@ const navbar = () => {
         </div>
         <div className="menu-open hidden md:block">
           <ul className='flex items-center h-full text-xl font-["Outfit"] [&>li>a]:py-7 [&>li>a]:px-6 [&>li>a]:transition-colors [&>li>a:hover]:bg-black/80'>
-            <li><Link href="/about">Home</Link></li>
-            <li><Link href="/services">About</Link></li>
-            <li><Link href="/contact">Contact</Link></li>
+            <li><Link href="#home">Home</Link></li>
+            <li><Link href="#about">About</Link></li>
+            <li><Link href="#contact">Contact</Link></li>
           </ul>
         </div>
           <button className='block md:hidden'>
@@ -40,9 +39,9 @@ const navbar = () => {
                        [&>li>a]:block [&>li>a]:w-[250px] [&>li>a]:px-6 [&>li>a]:py-4
                        [&>li>a]:transition-colors [&>li>a:hover]:bg-black/80'
           >
-            <li><Link href="/about">Home</Link></li>
-            <li><Link href="/services">About</Link></li>
-            <li><Link href="/contact">Contact</Link></li>
+            <li><Link href="#home">Home</Link></li>
+            <li><Link href="#about">About</Link></li>
+            <li><Link href="#contact">Contact</Link></li>
           </ul>
         </div>
       </div>
