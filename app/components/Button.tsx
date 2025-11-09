@@ -8,7 +8,9 @@ interface Props {
   variant?: Variant
   size?: Size
   href?: string
-  onClick?: React.MouseEventHandler<HTMLButtonElement>
+  target?: string
+  rel?: string
+  onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>
   className?: string
   type?: 'button' | 'submit' | 'reset'
   ariaLabel?: string
@@ -31,23 +33,26 @@ export default function Button({
   variant = 'primary',
   size = 'md',
   href,
+  target,
+  rel,
   onClick,
   className = '',
   type = 'button',
   ariaLabel
 }: Props) {
   const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`.trim()
+  const computedRel = target === '_blank' && !rel ? 'noopener noreferrer' : rel
 
   if (href) {
     return (
-      <a href={href} className={classes} aria-label={ariaLabel}>
+      <a href={href} className={classes} target={target} rel={computedRel} onClick={onClick as React.MouseEventHandler<HTMLAnchorElement>} aria-label={ariaLabel}>
         {children}
       </a>
     )
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes} aria-label={ariaLabel}>
+    <button type={type} onClick={onClick as React.MouseEventHandler<HTMLButtonElement>} className={classes} aria-label={ariaLabel}>
       {children}
     </button>
   )
