@@ -5,13 +5,37 @@ import ShowcaseImage2 from '../../public/case2.png';
 import ShowcaseImage3 from '../../public/case3.png';
 import ShowcaseImage4 from '../../public/case4.png';
 import SipsImage from '../../public/sips.png';
+import gsap from 'gsap';
+import { ScrollTrigger, SplitText } from 'gsap/all';
+import { useEffect } from 'react';
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Showcase = () => {
+useEffect(() => {
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#showcase",
+            start: "top 60%",
+        }
+    });
+    const textSplit = SplitText.create(".showtitle", { type: "lines, words", linesClass: "line" });
+    const words = textSplit.words;
+
+    tl.from(words, {
+        duration: 0.6,
+        opacity: 0,
+        yPercent: 50,
+        ease: "power",
+        stagger: .50,
+    });
+}, []);
+
     return (
         <section id="showcase" className="w-full bg-gray-100 flex items-center justify-center pb-16">
             <div className="max-w-[1400px] w-full">
                 <div className="flex flex-col items-center text-center gap-4 py-16 px-4 md:px-0">
-                    <h2 className="text-[min(8vw,5rem)] text-theme-color font-['Outfit'] font-black mb-4">BREW. PAIR. ENJOY.</h2>
+                    <h2 className="showtitle text-[min(8vw,5rem)] text-theme-color font-['Outfit'] font-black mb-4">BREW. PAIR. ENJOY.</h2>
 
                     {/* grid wrapper: when hovering a .showcase-item, siblings will blur via the CSS below */}
                     <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 w-full showcase-grid py-4 px-4 xl:px-0">
@@ -37,7 +61,7 @@ const Showcase = () => {
                                     SIPS WORTH<br />SHARING
                                 </h2>
                                 <Image src={SipsImage} alt="SipsImage" fill className="object-cover rounded-4xl" />
-                                <div className='absolute -bottom-[min(8vw,4rem)] -right-[min(8vw,4rem)] bg-black/20 backdrop-blur-2xl rounded-xl p-6 max-w-sm text-left ml-8 sm:ml-0'>
+                                <div className='absolute -bottom-[min(8vw,4rem)] -right-[min(8vw,4rem)] bg-black/20 backdrop-blur-xs rounded-xl p-6 max-w-sm text-left ml-8 sm:ml-0'>
                                     <p className='text-sm sm:text-[min(8vw,1.5rem)] font-["Outfit"] uppercase'>Because a great coffee isn&apos;t just a drink - it&apos;s a shared experience.</p>
                                 </div>
                             </div>
