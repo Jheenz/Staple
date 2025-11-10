@@ -76,8 +76,8 @@ const Navbar = () => {
         <div className="menu-open hidden md:block">
           <ul className='flex items-center h-full text-xl font-["Outfit"] [&>li>a]:py-7 [&>li>a]:px-6 [&>li>a]:transition-colors [&>li>a:hover]:bg-black/80'>
             <li><Link href="#home" onClick={onHashClick('#home')}>Home</Link></li>
-            <li><Link href="#showcase" onClick={onHashClick('#showcase')}>Explore</Link></li>
             <li><Link href="#about" onClick={onHashClick('#about')}>About</Link></li>
+            <li><Link href="#showcase" onClick={onHashClick('#showcase')}>Explore</Link></li>
             <li><Link href="#contact" onClick={onHashClick('#contact')}>Socials</Link></li>
           </ul>
         </div>
@@ -100,8 +100,8 @@ const Navbar = () => {
                   [&>li>a]:transition-colors [&>li>a:hover]:bg-black/80'
             >
             <li><Link href="#home" onClick={onHashClick('#home')} className="block w-full">Home</Link></li>
-            <li><Link href="#showcase" onClick={onHashClick('#showcase')} className="block w-full">Explore</Link></li>
             <li><Link href="#about" onClick={onHashClick('#about')} className="block w-full">About</Link></li>
+            <li><Link href="#showcase" onClick={onHashClick('#showcase')} className="block w-full">Explore</Link></li>
             <li><Link href="#contact" onClick={onHashClick('#contact')} className="block w-full">Contact</Link></li>
             </ul>
         </div>

@@ -32,6 +32,9 @@ useEffect(() => {
 }, []);
 
     useEffect(() => {
+        const isMobile = window.matchMedia('(max-width: 640px)').matches;
+
+        if (!isMobile) {
         const timeline = gsap.timeline({
             scrollTrigger: {
                 trigger: "#Sip",
@@ -48,6 +51,26 @@ useEffect(() => {
           stagger: 0.5,
           ease: "power4.Out",
         },'-=0.4');
+    } else {
+        gsap.to(".sipimg", {
+        scale: 1,
+        duration: 1,
+        scrollTrigger: {
+            trigger: "#Sip",
+            start: "top 80%",
+        }
+        });
+        gsap.to(".exp", {
+        y: 0,
+        duration: 0.6,
+        stagger: 0.5,
+        ease: "power4.Out",
+        scrollTrigger: {
+            trigger: "#explore",
+            start: "top 80%",
+        }
+        });
+    }
     }, []);
 
     return (
@@ -86,7 +109,7 @@ useEffect(() => {
                             </div>
                         </div>
                     </div>
-                    <div className='md:w-1/2 p-8'>
+                    <div id='explore' className='md:w-1/2 p-8'>
                         <div className='pb-8'>
                             <div style={{ clipPath: 'polygon(0 0, 100% 0, 100% 120%, 0% 120%)' }}>
                                 <h1 className='exp text-black text-6xl font-["Outfit"] font-bold translate-y-[125px]'>Explore the Delightful</h1>
