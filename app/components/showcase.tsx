@@ -8,7 +8,7 @@ import SipsImage from '../../public/sips.png';
 
 const Showcase = () => {
     return (
-        <section id="showcase" className="w-full bg-gray-100 flex items-center justify-center">
+        <section id="showcase" className="w-full bg-gray-100 flex items-center justify-center pb-16">
             <div className="max-w-[1400px] w-full">
                 <div className="flex flex-col items-center text-center gap-4 py-16 px-4 md:px-0">
                     <h2 className="text-[min(8vw,5rem)] text-theme-color font-['Outfit'] font-black mb-4">BREW. PAIR. ENJOY.</h2>

@@ -19,7 +19,7 @@ const navbar = () => {
           <ul className='flex items-center h-full text-xl font-["Outfit"] [&>li>a]:py-7 [&>li>a]:px-6 [&>li>a]:transition-colors [&>li>a:hover]:bg-black/80'>
             <li><Link href="#home">Home</Link></li>
             <li><Link href="#about">About</Link></li>
-            <li><Link href="#contact">Contact</Link></li>
+            <li><Link href="#contact">Socials</Link></li>
           </ul>
         </div>
           <button className='block md:hidden'>
