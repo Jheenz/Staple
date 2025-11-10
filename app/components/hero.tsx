@@ -48,13 +48,17 @@ const Hero = () => {
                         </h1>
                     </div>
                 </div>
-                <p className="title text-sm sm:text-lg text-white/80 max-w-2xl">
-                It&apos;s more than a cup of coffee - it&apos;s about the companionship we built into every cup. It&apos;s always a good cup with good companions!
-                </p>
-                <div>
-                    <Button href="https://www.google.com/maps/dir/?api=1&destination=Staple+Coffee" target='_blank' variant="primary">
-                        <span className='flex items-center font-["Roboto"]'>Visit Us <FontAwesomeIcon icon={faArrowRight} className="ml-2 w-4 h-4" /></span>
-                    </Button>
+                <div style={{ clipPath: 'polygon(0 0, 100% 0, 100% 120%, 0% 120%)'}}>
+                    <p className="title text-sm sm:text-lg text-white/80 max-w-2xl translate-y-[125px]">
+                        It&apos;s more than a cup of coffee - it&apos;s about the companionship we built into every cup. It&apos;s always a good cup with good companions!
+                    </p>
+                </div>
+                <div style={{ clipPath: 'polygon(0 0, 100% 0, 100% 120%, 0% 120%)' }}>
+                    <div className="title translate-y-[125px]">
+                        <Button href="https://www.google.com/maps/dir/?api=1&destination=Staple+Coffee" target='_blank' variant="primary">
+                            <span className='flex items-center font-["Roboto"]'>Visit Us <FontAwesomeIcon icon={faArrowRight} className="ml-2 w-4 h-4" /></span>
+                        </Button>
+                    </div>
                 </div>
             </div>
         </div>
