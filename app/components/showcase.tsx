@@ -112,7 +112,7 @@ useEffect(() => {
                     <div id='explore' className='md:w-1/2 p-8'>
                         <div className='pb-8'>
                             <div style={{ clipPath: 'polygon(0 0, 100% 0, 100% 120%, 0% 120%)' }}>
-                                <h1 className='exp text-black text-6xl font-["Outfit"] font-bold translate-y-[125px]'>Explore the Delightful</h1>
+                                <h1 className='exp text-black text-6xl font-["Outfit"] font-bold translate-y-[150px]'>Explore the Delightful</h1>
                             </div>
                             <div style={{ clipPath: 'polygon(0 0, 100% 0, 100% 120%, 0% 120%)' }}>
                                 <h1 className='exp text-theme-color text-6xl font-["Outfit"] font-bold translate-y-[125px]'>Offerings</h1>
