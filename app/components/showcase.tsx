@@ -14,7 +14,7 @@ const Showcase = () => {
                     <h2 className="text-[min(8vw,5rem)] text-theme-color font-['Outfit'] font-black mb-4">BREW. PAIR. ENJOY.</h2>
 
                     {/* grid wrapper: when hovering a .showcase-item, siblings will blur via the CSS below */}
-                    <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 w-full showcase-grid py-4">
+                    <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 w-full showcase-grid py-4 px-4 xl:px-0">
                         <div className="showcase-item relative w-full h-60 sm:h-80 md:h-100 overflow-hidden rounded-xl transition-transform duration-300 will-change-transform">
                             <Image src={ShowcaseImage1} alt="Showcase 1" fill className="object-cover" />
                         </div>
@@ -29,12 +29,16 @@ const Showcase = () => {
                         </div>
                     </div>
                 </div>
-                <div className='bg-theme-color rounded-xl'>
-                    <div className='relative w-full h-60 md:h-120 p-4 flex items-center justify-center text-white'>
-                        <h2 className='font-["Outfit"] font-black text-5xl'>SIPS WORTH<br />SHARING</h2>
-                        <Image src={SipsImage} alt="SipsImage" fill className="object-cover" />
-                        <div>
-
+                <div className='bg-theme-color rounded-4xl m-8 xl:m-0 overflow-hidden'>
+                    <div className='relative w-full h-128 md:h-196 p-8 py-24 md:py-8 my-4 md:my-10 flex items-center justify-center text-white'>
+                        <div className='relative w-full max-w-96 h-full max-h-128 m-8 md:m-0'>
+                            <h2 className='absolute -top-[min(8vh,4rem)] -left-[min(8vw,4rem)] font-["Outfit"] font-black text-[min(8vw,4rem)] leading-[min(8vw,4rem)] z-10'>
+                                SIPS WORTH<br />SHARING
+                            </h2>
+                            <Image src={SipsImage} alt="SipsImage" fill className="object-cover rounded-4xl" />
+                            <div className='absolute -bottom-[min(8vw,4rem)] -right-[min(8vw,4rem)] bg-black/20 backdrop-blur-2xl rounded-xl p-6 max-w-sm text-left ml-8 sm:ml-0'>
+                                <p className='text-sm sm:text-[min(8vw,1.5rem)] font-["Outfit"] uppercase'>Because a great coffee isn&apos;t just a drink - it&apos;s a shared experience.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
