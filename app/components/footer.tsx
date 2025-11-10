@@ -19,7 +19,7 @@ const Footer = () => {
     
     return (
         <footer id="contact" className="w-full bg-linear-to-r from-theme-color to-black text-white">
-            <div className="max-w-[1400px] mx-auto px-4 py-16">
+            <div className="max-w-[1400px] mx-auto px-8 xl:px-0 py-16">
                 <div className="flex flex-col md:flex-row gap-8 justify-between md:items-center">
                     <div className="flex flex-col gap-4">
                         <h2 className="font-['Outfit'] font-bold text-5xl">Follow Us!</h2>
@@ -53,7 +53,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-             <div className="max-w-[1400px] mx-auto flex justify-between pb-4">
+             <div className="max-w-[1400px] mx-auto flex justify-between px-8 xl:px-0 pb-4">
                 <div>
                     <span className="text-neutral-400 font-medium">Version</span>
                 <p className="text-sm font-extralight mt-2">
