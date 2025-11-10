@@ -22,7 +22,7 @@ const About = () => {
                         <div className="w-full h-80 md:w-100 md:h-100 lg:w-120 lg:h-120 relative self-end">
                             <Image src={AboutImage} alt="IMG" fill className="object-cover" />
                             <a href="https://www.facebook.com/reel/1304251573996613" target="_blank" rel="noopener noreferrer" className="absolute inset-0 bg-black opacity-20 hover:opacity-50 duration-300 flex items-center justify-center cursor-pointer">
-                                <FontAwesomeIcon icon={faPlay} className='w-10'/>
+                                <FontAwesomeIcon icon={faPlay} className='text-6xl'/>
                             </a>
                         </div>
                     </div>

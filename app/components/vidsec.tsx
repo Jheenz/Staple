@@ -24,7 +24,7 @@ useEffect(() => {
     return (
         <section id="videosec" className="w-full bg-white flex items-center justify-center">
             <div className="max-w-[1400px] w-full py-16">
-                <div className='w-full h-full flex flex-col-reverse lg:flex-row items-center p-8 xl:p-0'>
+                <div className='w-full h-full flex flex-col lg:flex-row items-center p-8 xl:p-0'>
                     <div className="videosec-item lg:w-[70%] rounded-4xl overflow-hidden scale-75">
                     <video
                         className='w-full h-full object-cover'
@@ -37,7 +37,7 @@ useEffect(() => {
                     />
                     </div>
                     <div className="lg:w-[30%] lg:p-8 py-4 lg:py-0 flex flex-col gap-4">
-                        <h2 className="font-['Outfit'] font-bold text-black text-4xl md:text-6xl">COME ON IN<br />& DRINK UP</h2>
+                        <h2 className="font-['Outfit'] font-bold text-black text-4xl md:text-6xl">COME ON IN<br />& <span className="text-theme-color">DRINK UP</span></h2>
                         <p className="font-['Outfit'] text-black text-md">
                             Join us for a refreshing drink and a good time! Enjoy handcrafted cocktails, a rotating selection of local beers, and thoughtful non-alcoholic options. Relax in our cozy atmosphere, catch live music on weekends, and take advantage of weekly specials — perfect for catching up with friends or making new ones.
                         </p>
