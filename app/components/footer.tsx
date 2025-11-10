@@ -57,7 +57,7 @@ const Footer = () => {
                 <div>
                     <span className="text-neutral-400 font-medium">Version</span>
                 <p className="text-sm font-extralight mt-2">
-                    &copy;{currentYear ? currentYear : ''} JHENSLEE ARCE
+                    &copy;{currentYear ? currentYear : ''} ver 1.0 | JHENSLEE ARCE
                 </p>
                 </div>
                 <div>
