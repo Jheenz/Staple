@@ -1,9 +1,31 @@
+'use client';
+import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const VideoSection = () => {
+useEffect(() => {
+    
+    const trigger = {
+        trigger: "#videosec",
+        start: "top 50%",
+    }
+    gsap.to(".videosec-item", {
+        scrollTrigger: trigger,
+        scale: 1,
+        duration: 0.5,
+        ease: "power1.inOut",
+    });
+
+}, []);
+
     return (
-        <section className="w-full bg-white flex items-center justify-center">
+        <section id="videosec" className="w-full bg-white flex items-center justify-center">
             <div className="max-w-[1400px] w-full py-16">
                 <div className='w-full h-full flex flex-col-reverse lg:flex-row items-center p-8 xl:p-0'>
-                    <div className="lg:w-[70%] rounded-4xl overflow-hidden">
+                    <div className="videosec-item lg:w-[70%] rounded-4xl overflow-hidden scale-75">
                     <video
                         className='w-full h-full object-cover'
                         src="/media/ComeOn.mp4"
