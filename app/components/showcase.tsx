@@ -120,19 +120,19 @@ useEffect(() => {
                         </div>
                         <div className='flex flex-col gap-8'>
                             <div style={{ clipPath: 'polygon(0 0, 100% 0, 100% 120%, 0% 120%)' }}>
-                                <div className='exp translate-y-[125px]'>
+                                <div className='exp translate-y-[210px]'>
                                     <h3 className='text-theme-color text-2xl font-["Outfit"] font-semibold'>Coffee:</h3>
                                     <p className='text-black font-["Roboto"]'>Immerse yourself in the rich world of exceptional coffee crafted with precision and passion. Choose from our selection of single-origin delights or expertly blended brews, all available with the option of Oatside milk for a creamy and plant-based alternative.</p>
                                 </div>
                             </div>
                             <div style={{ clipPath: 'polygon(0 0, 100% 0, 100% 120%, 0% 120%)' }}>
-                                <div className='exp translate-y-[125px]'>
+                                <div className='exp translate-y-[180px]'>
                                     <h3 className='text-theme-color text-2xl font-["Outfit"] font-semibold'>Non Coffee:</h3>
                                     <p className='text-black font-["Roboto"]'>For those who savor moments without the buzz of caffeine, our non-coffee offerings are a treat. Indulge in a selection of handcrafted teas, refreshing beverages, and delectable alternatives, ensuring there&apos;s something for every palate.</p>
                                 </div>
                             </div>
                             <div style={{ clipPath: 'polygon(0 0, 100% 0, 100% 120%, 0% 120%)' }}>
-                                <div className='exp translate-y-[125px]'>
+                                <div className='exp translate-y-[180px]'>
                                     <h3 className='text-theme-color text-2xl font-["Outfit"] font-semibold'>Pastries:</h3>
                                     <p className='text-black font-["Roboto"]'>Elevate your coffee experience with our delectable range of freshly baked bread. From Grilled Cheese to Cookies, our bread selection complements the perfect cup, adding a delightful touch to your visit.</p>
                                 </div>
