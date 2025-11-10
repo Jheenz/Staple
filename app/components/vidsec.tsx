@@ -7,17 +7,23 @@ gsap.registerPlugin(ScrollTrigger);
 
 const VideoSection = () => {
 useEffect(() => {
-    
-    const trigger = {
-        trigger: "#videosec",
-        start: "top 50%",
-    }
-    gsap.to(".videosec-item", {
-        scrollTrigger: trigger,
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#videosec",
+            start: "top 65%",
+        }
+    });
+    tl.to(".videosec-item", {
         scale: 1,
         duration: 0.5,
         ease: "power1.inOut",
-    });
+    })
+    tl.to(".vidtitle", {
+        y: 0,
+        duration: 0.6,
+        stagger: 0.5,
+        ease: "power4.Out",
+    }, '-=0.3');
 
 }, []);
 
@@ -37,10 +43,19 @@ useEffect(() => {
                     />
                     </div>
                     <div className="lg:w-[30%] lg:p-8 py-4 lg:py-0 flex flex-col gap-4">
-                        <h2 className="font-['Outfit'] font-bold text-black text-4xl md:text-6xl">COME ON IN<br />& <span className="text-theme-color">DRINK UP</span></h2>
-                        <p className="font-['Outfit'] text-black text-md">
-                            Join us for a refreshing drink and a good time! Enjoy handcrafted cocktails, a rotating selection of local beers, and thoughtful non-alcoholic options. Relax in our cozy atmosphere, catch live music on weekends, and take advantage of weekly specials — perfect for catching up with friends or making new ones.
-                        </p>
+                        <div>
+                            <div style={{ clipPath: 'polygon(0 0, 100% 0, 100% 120%, 0% 120%)' }}>
+                                <h1 className='vidtitle text-black text-6xl font-["Outfit"] font-bold translate-y-[125px]'>COME ON IN</h1>
+                            </div>
+                            <div style={{ clipPath: 'polygon(0 0, 100% 0, 100% 120%, 0% 120%)' }}>
+                                <h1 className='vidtitle text-black text-6xl font-["Outfit"] font-bold translate-y-[125px]'>& <span className="text-theme-color">DRINK UP</span></h1>
+                            </div>
+                        </div>
+                        <div style={{ clipPath: 'polygon(0 0, 100% 0, 100% 120%, 0% 120%)' }}>
+                            <p className="vidtitle font-['Outfit'] text-black text-md translate-y-[200px]">
+                                Join us for a refreshing drink and a good time! Enjoy handcrafted cocktails, a rotating selection of local beers, and thoughtful non-alcoholic options. Relax in our cozy atmosphere, catch live music on weekends, and take advantage of weekly specials — perfect for catching up with friends or making new ones.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

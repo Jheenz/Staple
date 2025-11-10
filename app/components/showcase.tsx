@@ -16,7 +16,7 @@ useEffect(() => {
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: "#showcase",
-            start: "top 60%",
+            start: "top 65%",
         }
     });
     const textSplit = SplitText.create(".showtitle", { type: "lines, words", linesClass: "line" });
@@ -30,6 +30,25 @@ useEffect(() => {
         stagger: .50,
     });
 }, []);
+
+    useEffect(() => {
+        const timeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#Sip",
+                start: "top 65%",
+            }
+        });
+        timeline.to(".sipimg", {
+          scale: 1,
+          duration: 1,
+        });
+        timeline.to(".exp", {
+          y: 0,
+          duration: 0.6,
+          stagger: 0.5,
+          ease: "power4.Out",
+        },'-=0.4');
+    }, []);
 
     return (
         <section id="showcase" className="w-full bg-gray-100 flex items-center justify-center pb-16">
@@ -53,14 +72,14 @@ useEffect(() => {
                         </div>
                     </div>
                 </div>
-                <div className='flex flex-col md:flex-row gap-4'>
+                <div id='Sip' className='flex flex-col md:flex-row gap-4'>
                     <div className='bg-theme-color rounded-4xl m-8 xl:m-0 md:w-1/2 overflow-hidden'>
                         <div className='relative w-full h-128 md:h-196 p-8 py-24 md:py-8 my-4 md:my-10 flex items-center justify-center text-white'>
                             <div className='relative w-full max-w-96 h-full max-h-128 m-8 md:m-0'>
                                 <h2 className='absolute -top-[min(8vh,4rem)] -left-[min(8vw,4rem)] font-["Outfit"] font-black text-[min(8vw,4rem)] leading-[min(8vw,4rem)] z-10'>
                                     SIPS WORTH<br />SHARING
                                 </h2>
-                                <Image src={SipsImage} alt="SipsImage" fill className="object-cover rounded-4xl" />
+                                <Image src={SipsImage} alt="SipsImage" fill className="sipimg object-cover rounded-4xl scale-75" />
                                 <div className='absolute -bottom-[min(8vw,4rem)] -right-[min(8vw,4rem)] bg-black/20 backdrop-blur-xs rounded-xl p-6 max-w-sm text-left ml-8 sm:ml-0'>
                                     <p className='text-sm sm:text-[min(8vw,1.5rem)] font-["Outfit"] uppercase'>Because a great coffee isn&apos;t just a drink - it&apos;s a shared experience.</p>
                                 </div>
@@ -68,19 +87,32 @@ useEffect(() => {
                         </div>
                     </div>
                     <div className='md:w-1/2 p-8'>
-                        <h1 className='text-black text-6xl font-["Outfit"] font-bold pb-8'>Explore the Delightful <span className='text-theme-color'>Offerings</span></h1>
+                        <div className='pb-8'>
+                            <div style={{ clipPath: 'polygon(0 0, 100% 0, 100% 120%, 0% 120%)' }}>
+                                <h1 className='exp text-black text-6xl font-["Outfit"] font-bold translate-y-[125px]'>Explore the Delightful</h1>
+                            </div>
+                            <div style={{ clipPath: 'polygon(0 0, 100% 0, 100% 120%, 0% 120%)' }}>
+                                <h1 className='exp text-theme-color text-6xl font-["Outfit"] font-bold translate-y-[125px]'>Offerings</h1>
+                            </div>
+                        </div>
                         <div className='flex flex-col gap-8'>
-                            <div>
-                                <h3 className='text-theme-color text-2xl font-["Outfit"] font-semibold'>Coffee:</h3>
-                                <p className='text-black font-["Roboto"]'>Immerse yourself in the rich world of exceptional coffee crafted with precision and passion. Choose from our selection of single-origin delights or expertly blended brews, all available with the option of Oatside milk for a creamy and plant-based alternative.</p>
+                            <div style={{ clipPath: 'polygon(0 0, 100% 0, 100% 120%, 0% 120%)' }}>
+                                <div className='exp translate-y-[125px]'>
+                                    <h3 className='text-theme-color text-2xl font-["Outfit"] font-semibold'>Coffee:</h3>
+                                    <p className='text-black font-["Roboto"]'>Immerse yourself in the rich world of exceptional coffee crafted with precision and passion. Choose from our selection of single-origin delights or expertly blended brews, all available with the option of Oatside milk for a creamy and plant-based alternative.</p>
+                                </div>
                             </div>
-                            <div>
-                                <h3 className='text-theme-color text-2xl font-["Outfit"] font-semibold'>Non Coffee:</h3>
-                                <p className='text-black font-["Roboto"]'>For those who savor moments without the buzz of caffeine, our non-coffee offerings are a treat. Indulge in a selection of handcrafted teas, refreshing beverages, and delectable alternatives, ensuring there&apos;s something for every palate.</p>
+                            <div style={{ clipPath: 'polygon(0 0, 100% 0, 100% 120%, 0% 120%)' }}>
+                                <div className='exp translate-y-[125px]'>
+                                    <h3 className='text-theme-color text-2xl font-["Outfit"] font-semibold'>Non Coffee:</h3>
+                                    <p className='text-black font-["Roboto"]'>For those who savor moments without the buzz of caffeine, our non-coffee offerings are a treat. Indulge in a selection of handcrafted teas, refreshing beverages, and delectable alternatives, ensuring there&apos;s something for every palate.</p>
+                                </div>
                             </div>
-                            <div>
-                                <h3 className='text-theme-color text-2xl font-["Outfit"] font-semibold'>Pastries:</h3>
-                                <p className='text-black font-["Roboto"]'>Elevate your coffee experience with our delectable range of freshly baked bread. From Grilled Cheese to Cookies, our bread selection complements the perfect cup, adding a delightful touch to your visit.</p>
+                            <div style={{ clipPath: 'polygon(0 0, 100% 0, 100% 120%, 0% 120%)' }}>
+                                <div className='exp translate-y-[125px]'>
+                                    <h3 className='text-theme-color text-2xl font-["Outfit"] font-semibold'>Pastries:</h3>
+                                    <p className='text-black font-["Roboto"]'>Elevate your coffee experience with our delectable range of freshly baked bread. From Grilled Cheese to Cookies, our bread selection complements the perfect cup, adding a delightful touch to your visit.</p>
+                                </div>
                             </div>
                         </div>
                     </div>

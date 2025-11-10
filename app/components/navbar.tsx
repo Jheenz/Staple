@@ -34,7 +34,7 @@ const Navbar = () => {
       tl.current?.kill()
       tl.current = null
     }
-   }, []);
+  }, []);
 
   useEffect(() => {
     if (tl.current) {
@@ -76,6 +76,7 @@ const Navbar = () => {
         <div className="menu-open hidden md:block">
           <ul className='flex items-center h-full text-xl font-["Outfit"] [&>li>a]:py-7 [&>li>a]:px-6 [&>li>a]:transition-colors [&>li>a:hover]:bg-black/80'>
             <li><Link href="#home" onClick={onHashClick('#home')}>Home</Link></li>
+            <li><Link href="#showcase" onClick={onHashClick('#showcase')}>Explore</Link></li>
             <li><Link href="#about" onClick={onHashClick('#about')}>About</Link></li>
             <li><Link href="#contact" onClick={onHashClick('#contact')}>Socials</Link></li>
           </ul>
@@ -95,10 +96,11 @@ const Navbar = () => {
           {/* optimized: make each anchor a block that fills the container so hover covers full width */}
             <ul
             className='list-none w-full flex flex-col justify-center items-start text-xl font-["Outfit"]
-                   [&>li]:w-full [&>li>a]:block [&>li>a]:w-full [&>li>a]:px-6 [&>li>a]:py-4
-                   [&>li>a]:transition-colors [&>li>a:hover]:bg-black/80'
+                  [&>li]:w-full [&>li>a]:block [&>li>a]:w-full [&>li>a]:px-6 [&>li>a]:py-4
+                  [&>li>a]:transition-colors [&>li>a:hover]:bg-black/80'
             >
             <li><Link href="#home" onClick={onHashClick('#home')} className="block w-full">Home</Link></li>
+            <li><Link href="#showcase" onClick={onHashClick('#showcase')} className="block w-full">Explore</Link></li>
             <li><Link href="#about" onClick={onHashClick('#about')} className="block w-full">About</Link></li>
             <li><Link href="#contact" onClick={onHashClick('#contact')} className="block w-full">Contact</Link></li>
             </ul>
