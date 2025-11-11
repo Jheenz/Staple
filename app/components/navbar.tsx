@@ -5,6 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const staple = localFont({
   src: '../../public/media/Bodoni.otf',
@@ -19,6 +22,27 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
+
+useEffect(() => {
+    // animate background + shadow when user scrolls past threshold
+    const bgAnim = gsap.to('.menu-bar', {
+      backgroundColor: 'rgba(0,0,0,0.65)',
+      boxShadow: '0 8px 30px rgba(0,0,0,0.35)',
+      duration: 0.28,
+      paused: true,
+    });
+
+    const st = ScrollTrigger.create({
+      start: 'top+=800 top',
+      onEnter: () => bgAnim.play(),
+      onLeaveBack: () => bgAnim.reverse(),
+    });
+
+    return () => {
+      bgAnim.kill();
+      st.kill();
+    };
+}, []);
 
   useEffect(() => {
     if (!overlayRef.current) return
@@ -68,13 +92,13 @@ const Navbar = () => {
     }
   }
   return (
-    <div className='menu-bar bg-black/30 fixed top-0 left-0 w-full z-20 -translate-y-20'>
+    <div className='menu-bar fixed top-0 left-0 w-full z-20 -translate-y-20'>
       <div className='max-w-[1400px] w-full mx-auto px-8 py-4 flex justify-between items-center text-white'>
         <div className='menu-logo font-semibold'>
-          <Link href="/" className={`${staple.className} text-4xl md:text-5xl font-extralight`}>STAPLE</Link>
+          <Link href="/" className={`${staple.className} text-4xl md:text-5xl font-extralight hover:text-theme-color transition-colors duration-300 py-4`}>STAPLE</Link>
         </div>
         <div className="menu-open hidden md:block">
-          <ul className='flex items-center h-full text-xl font-["Outfit"] [&>li>a]:py-7 [&>li>a]:px-6 [&>li>a]:transition-colors [&>li>a:hover]:bg-black/80'>
+          <ul className='flex items-center h-full text-xl font-["Outfit"] [&>li>a]:py-7 [&>li>a]:px-6 [&>li>a]:transition-colors [&>li>a:hover]:bg-black/80 [&>li>a:hover]:font-medium [&>li>a:hover]:text-theme-color'>
             <li><Link href="#home" onClick={onHashClick('#home')}>Home</Link></li>
             <li><Link href="#about" onClick={onHashClick('#about')}>About</Link></li>
             <li><Link href="#showcase" onClick={onHashClick('#showcase')}>Explore</Link></li>
@@ -82,14 +106,14 @@ const Navbar = () => {
           </ul>
         </div>
           <button className='block md:hidden cursor-pointer' onClick={toggleMenu}>
-            <FontAwesomeIcon icon={faBars} className="text-2xl"/>
+            <FontAwesomeIcon icon={faBars} className="text-2xl hover:text-theme-color transition-colors duration-300"/>
           </button>
           {/* Sidebar */}
         <div ref={overlayRef} className="fixed top-0 right-0 h-dvh w-full sm:w-[250px] z-20 shadow-lg bg-black/10 backdrop-blur-xl translate-x-256">
           <div className='p-6 flex justify-between items-center'>
-            <Link href="/" className={`${staple.className} text-4xl md:text-5xl font-extralight`}>STAPLE</Link>
+            <Link href="/" className={`${staple.className} text-4xl md:text-5xl font-extralight hover:text-theme-color transition-colors duration-300`}>STAPLE</Link>
             <button className='cursor-pointer' onClick={toggleMenu}>
-              <FontAwesomeIcon icon={faXmark} className="text-2xl hover:rotate-90 transition-transform duration-300"/>
+              <FontAwesomeIcon icon={faXmark} className="text-2xl hover:rotate-90 hover:text-theme-color transition-all duration-300"/>
             </button>
           </div>
 
@@ -97,7 +121,7 @@ const Navbar = () => {
             <ul
             className='list-none w-full flex flex-col justify-center items-start text-xl font-["Outfit"]
                   [&>li]:w-full [&>li>a]:block [&>li>a]:w-full [&>li>a]:px-6 [&>li>a]:py-4
-                  [&>li>a]:transition-colors [&>li>a:hover]:bg-black/80'
+                  [&>li>a]:transition-colors [&>li>a:hover]:bg-black/80 [&>li>a:hover]:font-medium [&>li>a:hover]:text-theme-color'
             >
             <li><Link href="#home" onClick={onHashClick('#home')} className="block w-full">Home</Link></li>
             <li><Link href="#about" onClick={onHashClick('#about')} className="block w-full">About</Link></li>
