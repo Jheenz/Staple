@@ -30,6 +30,7 @@ const Footer = () => {
                             <Link
                             href="https://www.facebook.com/100088484048377"
                             target="_blank"
+                            title="Visit our Facebook"
                             aria-label="Staple on Facebook"
                             className="text-white hover:scale-125 transition-transform duration-300 text-[48px]"
                             >
@@ -38,6 +39,7 @@ const Footer = () => {
                             <Link
                             href="https://www.instagram.com/staplecoffee.ph"
                             target="_blank"
+                            title="Instagram Profile"
                             aria-label="Staple on Instagram"
                             className="text-white hover:scale-125 transition-transform duration-300 text-[50px]"
                             >

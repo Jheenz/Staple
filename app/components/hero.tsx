@@ -1,9 +1,10 @@
 'use client';
 import Button from './Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import Link from 'next/link';
 
 const Hero = () => {
     const timeline = useRef<gsap.core.Timeline | null>(null);
@@ -82,6 +83,9 @@ const Hero = () => {
         playsInline
         aria-hidden="true"
         />
+        <div className='absolute bottom-5 right-5 cursor-pointer z-10'>
+            <Link href="https://www.facebook.com/reel/380508814425137" title='Watch Video' target='_blank'><FontAwesomeIcon icon={faArrowUpRightFromSquare} className='text-2xl hover:text-theme-color transition-colors duration-300'/></Link>
+        </div>
 
         {/* overlay */}
         <div className="absolute inset-0 bg-black/50" />
