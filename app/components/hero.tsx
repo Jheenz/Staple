@@ -7,21 +7,74 @@ import { gsap } from 'gsap';
 
 const Hero = () => {
     const timeline = useRef<gsap.core.Timeline | null>(null);
+    const videoRef = useRef<HTMLVideoElement | null>(null);
+    const prevOverflow = useRef<{ html: string; body: string } | null>(null);
 
     useEffect(() => {
-        timeline.current = gsap.timeline();
+        prevOverflow.current = {
+          html: document.documentElement.style.overflow,
+          body: document.body.style.overflow,
+        };
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+
+        const enableScroll = () => {
+          if (prevOverflow.current) {
+            document.documentElement.style.overflow = prevOverflow.current.html || '';
+            document.body.style.overflow = prevOverflow.current.body || '';
+            prevOverflow.current = null;
+          } else {
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+          }
+        };
+
+        timeline.current = gsap.timeline({ paused: true });
         timeline.current.to(".title", {
           y: 0,
           duration: 1,
           stagger: 0.5,
           ease: "power4.Out",
-        })
+        });
+
+        const video = videoRef.current;
+        if (!video) {
+          enableScroll();
+          timeline.current?.play();
+          return;
+        }
+
+        const onCanPlayThrough = () => {
+          timeline.current?.play();
+          enableScroll();
+        };
+
+        // fallback: if event doesn't fire, start after 1s and enable scroll
+        const fallback = window.setTimeout(() => {
+          if (timeline.current?.paused()) timeline.current.play();
+          enableScroll();
+        }, 1000);
+
+        video.addEventListener('canplaythrough', onCanPlayThrough, { once: true });
+        video.addEventListener('loadeddata', onCanPlayThrough, { once: true });
+
+        return () => {
+          video.removeEventListener('canplaythrough', onCanPlayThrough);
+          video.removeEventListener('loadeddata', onCanPlayThrough);
+          clearTimeout(fallback);
+
+          enableScroll();
+          timeline.current?.kill();
+          timeline.current = null;
+        };
     }, []);
+
 
   return (
     <section id='home' className='relative w-full h-screen overflow-hidden flex items-center justify-center'>
         <video
         className='absolute inset-0 w-full h-full object-cover'
+        ref={videoRef}
         src='/media/Hero.mp4'
         autoPlay
         loop

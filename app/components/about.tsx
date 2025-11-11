@@ -26,6 +26,15 @@ useEffect(() => {
         opacity: 0,
         stagger: .04,
     });
+    gsap.to(".watch", {
+        y: 0,
+        duration: 1,
+        ease: "power4.Out",
+        scrollTrigger: {
+            trigger: "#about",
+            start: "top 30%",
+        }
+    });
 }, []);
 
   return (
@@ -39,7 +48,7 @@ useEffect(() => {
                         </p>
                     </div>
                     <div className="flex flex-col justify-end">
-                        <div className="flex justify-between text-theme-color w-full">
+                        <div className="watch flex justify-between text-theme-color w-full translate-y-8">
                             <p>Watch a video about Steady Sips</p>
                             <span>0:56</span>
                         </div>

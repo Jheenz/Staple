@@ -31,15 +31,33 @@ useEffect(() => {
     });
 }, []);
 
-    useEffect(() => {
-        const isMobile = window.matchMedia('(max-width: 640px)').matches;
+useEffect(() => {
+    gsap.set(".showcase-item", {
+        clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)'
+    });
 
-        if (!isMobile) {
+    const isMobile = window.matchMedia('(max-width: 640px)').matches;
+
+    const sipTrigger = {
+        trigger: "#Sip",
+        start: "top 65%",
+    };
+    const showcaseTrigger = {
+        trigger: "#showcase",
+        start: "top 65%",
+    };
+
+    gsap.to(".showcase-item", {
+        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+        duration: 1.2,
+        ease: "power4.inOut",
+        stagger: isMobile ? 0.8 : 0.2,
+        scrollTrigger: showcaseTrigger,
+    });
+
+    if (isMobile) {
         const timeline = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#Sip",
-                start: "top 65%",
-            }
+            scrollTrigger: sipTrigger
         });
         timeline.to(".sipimg", {
           scale: 1,
@@ -53,25 +71,25 @@ useEffect(() => {
         },'-=0.4');
     } else {
         gsap.to(".sipimg", {
-        scale: 1,
-        duration: 1,
-        scrollTrigger: {
-            trigger: "#Sip",
-            start: "top 80%",
-        }
+            scale: 1,
+            duration: 1,
+            scrollTrigger: sipTrigger,
         });
         gsap.to(".exp", {
-        y: 0,
-        duration: 0.6,
-        stagger: 0.5,
-        ease: "power4.Out",
-        scrollTrigger: {
-            trigger: "#explore",
-            start: "top 80%",
-        }
+            y: 0,
+            duration: 0.6,
+            stagger: 0.5,
+            ease: "power4.Out",
+            scrollTrigger: sipTrigger,
         });
     }
-    }, []);
+
+    // cleanup
+    return () => {
+        ScrollTrigger.getAll().forEach(t => t.kill());
+        gsap.killTweensOf(".showcase-item");
+    };
+}, []);
 
     return (
         <section id="showcase" className="w-full bg-gray-100 flex items-center justify-center pb-16">

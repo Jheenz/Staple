@@ -7,14 +7,17 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
 const Footer = () => {
-    const [localTime, setLocalTime] = useState<string>(() => new Date().toLocaleTimeString());
-    const [currentYear] = useState<string>(() => new Date().getFullYear().toString());
+    const [localTime, setLocalTime] = useState<string>('');
+    const [currentYear, setCurrentYear] = useState<string>('');
 
     useEffect(() => {
-        const timer = setInterval(() => {
+        setCurrentYear(new Date().getFullYear().toString());
+        setLocalTime(new Date().toLocaleTimeString());
+
+        const timer = window.setInterval(() => {
             setLocalTime(new Date().toLocaleTimeString());
         }, 1000);
-        return () => clearInterval(timer);
+        return () => window.clearInterval(timer);
     }, []);
     
     return (
@@ -57,7 +60,7 @@ const Footer = () => {
                 <div>
                     <span className="text-neutral-400 font-medium">Version</span>
                 <p className="text-sm font-extralight mt-2">
-                    &copy;{currentYear ? currentYear : ''} ver 1.0 | JHENSLEE ARCE
+                    &copy;{currentYear ? currentYear : ''} ver 1.0 | <Link href="https://arcejhenslee.vercel.app" className="text-white hover:underline">JHENSLEE ARCE</Link>
                 </p>
                 </div>
                 <div>
