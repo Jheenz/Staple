@@ -53,7 +53,7 @@ useEffect(() => {
                         </div>
                         <div style={{ clipPath: 'polygon(0 0, 100% 0, 100% 120%, 0% 120%)' }}>
                             <p className="vidtitle font-['Outfit'] text-black text-md translate-y-[200px]">
-                                Join us for a refreshing drink and a good time! Enjoy handcrafted cocktails, a rotating selection of local beers, and thoughtful non-alcoholic options. Relax in our cozy atmosphere, catch live music on weekends, and take advantage of weekly specials — perfect for catching up with friends or making new ones.
+                                Step into our cozy corner and experience the comfort of good coffee and great company. Whether you’re here to catch up with friends, get some work done, or simply unwind, our space is designed for moments that matter — one cup at a time.
                             </p>
                         </div>
                     </div>
