@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit, Roboto } from "next/font/google";
 import "./globals.css";
 import { ReactLenis } from "lenis/react";
+import { Analytics } from "@vercel/analytics/next"
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -30,6 +31,7 @@ export default function RootLayout({
           className={`${outfit.variable} ${roboto.variable} antialiased`}
         >
           {children}
+          <Analytics />
         </body>
       </ReactLenis>
     </html>
